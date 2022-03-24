@@ -1,0 +1,264 @@
+Signup API for country fetch
+
+request
+{
+  "task": "countryfetch"
+}
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtCountryName": "india"
+    },
+    {
+      "id": 2,
+      "txtCountryName": "china"
+    },
+    {
+      "id": 3,
+      "txtCountryName": "srilanka"
+    }
+  ]
+}
+--------------------------------------------------------
+Signup API for state fetch
+
+request
+{
+  "task": "statefetch"
+}
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtStatename": "kerala"
+    },
+    {
+      "id": 2,
+      "txtStatename": "tamil nadu"
+    }
+  ]
+}
+--------------------------------------------------------
+Signup API for user insert
+
+request
+{
+  "id": 1,
+  "txtUserType": 1,
+  "txtUsername": "abh123",
+  "txtPassword": "123",
+  "txtFirstname": "Abin",
+  "txtLastname": "Issac",
+  "txtCountryName": "india",
+  "txtStateName": "kerala",
+  "txtAddress": "abc",
+  "txtStreet": "dpd",
+  "txtCity": "ekm",
+  "txtPincode": "683562",
+  "txtPhoneNo": "910011277222",
+  "txtWebsite": "abintalks.com",
+  "bISRegistered": 1,
+  "dtCreatedOn": "20220321 10:30:09 AM",
+  "dtUpdatedOn": "20220323 11:10:09 AM",
+  "bDeleteFlag": 0
+}
+
+response
+{
+  "status": "success"
+}
+--------------------------------------------------------
+Login API for username and password fetch
+
+request
+{
+  "task": "unamepassfetch"
+}
+response
+{
+  "status": "success",
+  "values": {
+    "id": 1,
+    "txtUsername": "abh123",
+    "txtPassword": "123"
+  }
+}
+
+--------------------------------------------------------
+Login API for changing password
+
+request
+{
+  "id": 1,
+  "txtUsername": "abh123",
+  "txtPassword": "321"
+}
+
+response
+{
+  "status": "success"
+}
+
+--------------------------------------------------------
+Add Product API for inserting products
+
+request
+{
+  "id": 1,
+  "txtProdName": "oven",
+  "txtProdPrice": "7000",
+  "txtCategoryName": "kitchen appliances",
+  "dtCreatedOn": "20220321 10:30:09 AM",
+  "dtUpdatedOn": "20220323 11:10:09 AM",
+  "bDeleteFlag": 0
+}
+response
+{
+  "status": "success"
+}
+--------------------------------------------------------
+ProductList API for fetching products
+
+request
+{
+  "task": "productfetch"
+}
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtProdName": "oven",
+      "txtProdPrice": "7000",
+      "txtCategoryName": "kitchen appliances",
+      "dtCreatedOn": "20220321 10:30:09 AM",
+      "dtUpdatedOn": "20220323 11:10:09 AM",
+      "bDeleteFlag": 0
+    },
+    {
+      "id": 2,
+      "txtProdName": "cooker",
+      "txtProdPrice": "2000",
+      "txtCategoryName": "stoves",
+      "dtCreatedOn": "20220104 07:32:58 PM",
+      "dtUpdatedOn": "20220202 09:17:36 AM",
+      "bDeleteFlag": 1
+    }
+  ]
+}
+
+--------------------------------------------------------
+Edit Product  API for updating product
+
+request
+{
+  "id": 1,
+  "txtProdName": "gas stove",
+  "txtProdPrice": "4299",
+  "dtCreatedOn": "20220320 10:30:09 AM",
+  "dtUpdatedOn": "20220322 11:10:09 AM",
+  "bDeleteFlag": 0
+}
+
+response
+{
+  "status": "success"
+}
+
+--------------------------------------------------------
+OrderList API for inserting orders
+
+request
+{
+  "id": 1,
+  "txtOrderNo": "1211",
+  "txtOrderAmount": "7000",
+  "dtCreatedOn": "20220211 10:40:09 AM",
+  "dtUpdatedOn": "20220331 11:19:09 AM",
+  "bDeleteFlag": 1
+}
+
+response
+{
+  "status": "success"
+}
+
+--------------------------------------------------------
+OrderList API for fetching orders
+
+request
+{
+  "task": "orderfetch"
+}
+
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtUsername": "abhi123",
+      "txtAddress": "abc",
+      "txtOrderNo": "1211",
+      "txtOrderAmount": "7000",
+      "dtCreatedOn": "20220211 10:40:09 AM",
+      "dtUpdatedOn": "20220331 11:19:09 AM",
+      "bDeleteFlag": 1
+    },
+    {
+      "id": 1,
+      "txtUsername": "abhi123",
+      "txtAddress": "abc",
+      "txtOrderNo": "1212",
+      "txtOrderAmount": "2000",
+      "dtCreatedOn": "20220115 13:40:09 PM",
+      "dtUpdatedOn": "20220330 15:19:09 PM",
+      "bDeleteFlag": 1
+    }
+  ]
+}
+
+--------------------------------------------------------
+OrderEdit API for updating order
+
+request
+{
+  "id": 1,
+  "txtOrderNo": "1210",
+  "txtOrderAmount": "7005",
+  "dtCreatedOn": "20220201 10:40:09 AM",
+  "dtUpdatedOn": "20220321 11:19:09 AM",
+  "bDeleteFlag": 1
+}
+
+response
+{
+  "status": "success"
+}
+
+
+--------------------------------------------------------
+ProfileEdit API for updating users
+
+request
+{
+  "id": 1,
+  "txtPassword": "asd",
+  "txtFirstName": "Abyn",
+  "txtLastName": "I",
+  "txtAddress": "poi"
+}
+
+response
+{
+  "status": "success"
+}

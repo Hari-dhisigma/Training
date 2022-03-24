@@ -1,0 +1,117 @@
+Table Creation
+
+CREATE TABLE tblCountry(
+id INT NOT NULL AUTO_INCREMENT,
+txtCountryName VARCHAR(50) NOT NULL,
+PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tblState(
+id INT NOT NULL AUTO_INCREMENT,
+txtStateName VARCHAR(50) NOT NULL,
+refCountryName INT,
+PRIMARY KEY (id),
+FORIEGN KEY (refCountryName)
+REFERENCES tblCountry(id)
+);
+
+
+CREATE TABLE tblUsers(
+id INT NOT NULL AUTO_INCREMENT,
+txtUsername VARCHAR(50) NOT NULL,
+txtPassword VARCHAR(50) NOT NULL,
+refCountry INT NOT NULL,
+txtFirstname VARCHAR(50) NOT NULL,
+txtLastname VARCHAR(50) NOT NULL,
+txtAddress VARCHAR(50) NOT NULL,
+txtApartment VARCHAR(50) NOT NULL,
+txtCity VARCHAR(50) NOT NULL,
+refState INT NOT NULL,
+txtPincode VARCHAR(50) NOT NULL,
+txtPhoneNo VARCHAR(50) NOT NULL,
+txtWebsite VARCHAR(50) NOT NULL,
+bISRegistered BOOLEAN,
+bDeleteFlag BOOLEAN,
+dtCreatedOn DATETIME,
+dtUpdatedOn DATETIME,
+PRIMARY KEY (id),
+FORIEGN KEY (refCountry)
+REFERENCES tblCountry(id),
+FORIEGN KEY (refState)
+REFERENCES tblState(id) 
+);
+
+
+CREATE TABLE tblProduct(
+id INT NOT NULL AUTO_INCREMENT,
+txtProduct VARCHAR(50) NOT NULL,
+txtStatus VARCHAR(50) NOT NULL,
+txtInventory VARCHAR(50) NOT NULL,
+txtType VARCHAR(50) NOT NULL,
+txtVendor VARCHAR(50) NOT NULL,
+bDeleteFlag BOOLEAN,
+dtCreatedOn DATETIME,
+dtUpdatedOn DATETIME,
+PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tblAddProduct(
+id INT NOT NULL AUTO_INCREMENT,
+txtTitle VARCHAR(50) NOT NULL,
+txtDescription VARCHAR(50) NOT NULL,
+txtPrice VARCHAR(50) NOT NULL,
+txtCompareAtPrice VARCHAR(50) NOT NULL,
+txtCostPerItem VARCHAR(50) NOT NULL,
+bTax BOOLEAN,
+bProductOption BOOLEAN,
+txtOptionName VARCHAR(50) NOT NULL,
+txtOptionValue VARCHAR(50) NOT NULL,
+PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tblOrder(
+id INT NOT NULL AUTO_INCREMENT,
+txtOrder VARCHAR(50) NOT NULL,
+txtStatus VARCHAR(50) NOT NULL,
+txtCustomer VARCHAR(50) NOT NULL,
+txtCustomerType VARCHAR(50) NOT NULL,
+txtProduct VARCHAR(50) NOT NULL,
+txtItemSoldType VARCHAR(50) NOT NULL,
+txtCoupon VARCHAR(50) NOT NULL,
+txtNetSales VARCHAR(50) NOT NULL,
+bDeleteFlag BOOLEAN,
+dtCreatedOn DATETIME,
+dtUpdatedOn DATETIME,
+PRIMARY KEY (id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
