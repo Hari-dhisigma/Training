@@ -14,9 +14,9 @@ WHERE c.id = 1
 Signup API for user insert
 
 INSERT INTO tblUsers
-VALUES ('','','abh123','123','Abin','Issac','india','kerala','abc','dpd','ekm','683562','910011277222','abintalks.com',1,'20220321 10:30:09 AM','20220323 11:10:09 AM',0),
-       ('','','karthi','123','karthik','KR','india','tamil nadu','def','mint','chennai','600003','910215974476','fun4u.com',1,'20220215 12:51:19 PM','20220310 08:45:16 AM',0),
-	   ('','','John','123','John','Martines','America','Florida','hij','10th avenue','acksonville','32034','12375844010','johnmartines.com',0,'20220104 07:32:58 PM','20220202 09:17:36 AM',1);
+VALUES ('','abh123','123','Abin','Issac','india','kerala','abc','dpd','ekm','683562','910011277222','abintalks.com',1,'20220321 10:30:09 AM','20220323 11:10:09 AM',0),
+       ('','karthi','123','karthik','KR','india','tamil nadu','def','mint','chennai','600003','910215974476','fun4u.com',1,'20220215 12:51:19 PM','20220310 08:45:16 AM',0),
+	   ('','John','123','John','Martines','America','Florida','hij','10th avenue','acksonville','32034','12375844010','johnmartines.com',0,'20220104 07:32:58 PM','20220202 09:17:36 AM',1);
 	   
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Login API for username and password fetch
@@ -38,8 +38,8 @@ SELECT tp.id, tp.txtProdName, tp.txtProdPrice, pd.refProdCategory, pd.txtCategor
 Add Product API for inserting products
 
 INSERT INTO tblProduct
-VALUES ('1','oven','7000','kitchen appliances','20220321 10:30:09 AM','20220323 11:10:09 AM',0),
-       ('','cooker','2000','stoves','20220104 07:32:58 PM','20220202 09:17:36 AM',1);
+VALUES ('oven','7000','kitchen appliances','20220321 10:30:09 AM','20220323 11:10:09 AM',0),
+       ('cooker','2000','stoves','20220104 07:32:58 PM','20220202 09:17:36 AM',1);
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Edit Product  API for updating product
@@ -51,8 +51,8 @@ SET txtProdName = '', txtProdPrice = '', dtCreatedOn = '', dtUpdatedOn = '', bDe
 OrderList API for inserting orders
 
 INSERT INTO tblOrderHdr
-VALUES ('1','','1211','7000','20220211 10:40:09 AM','20220331 11:19:09 AM',1),
-       ('','','1212','2000','20220115 13:40:09 PM','20220330 15:19:09 PM',1);
+VALUES ('1211','7000','20220211 10:40:09 AM','20220331 11:19:09 AM',1),
+       ('','1212','2000','20220115 13:40:09 PM','20220330 15:19:09 PM',1);
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 OrderList API for fetching orders
 

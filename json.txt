@@ -27,7 +27,9 @@ Signup API for state fetch
 
 request
 {
-  "task": "statefetch"
+  "id": 1,
+  "txtCountryName": "india"
+  
 }
 
 response
