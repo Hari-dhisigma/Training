@@ -51,14 +51,14 @@ Signup API for user insert
 
 request
 {
-  "id": 1,
+  
   "txtUserType": 1,
   "txtUsername": "abh123",
   "txtPassword": "123",
   "txtFirstname": "Abin",
   "txtLastname": "Issac",
-  "txtCountryName": "india",
-  "txtStateName": "kerala",
+  "refCountry": 1,
+  "refState": 1,
   "txtAddress": "abc",
   "txtStreet": "dpd",
   "txtCity": "ekm",
@@ -66,8 +66,8 @@ request
   "txtPhoneNo": "910011277222",
   "txtWebsite": "abintalks.com",
   "bISRegistered": 1,
-  "dtCreatedOn": "20220321 10:30:09 AM",
-  "dtUpdatedOn": "20220323 11:10:09 AM",
+  "dtCreatedOn": "2022-03-21 10:30:09",
+  "dtUpdatedOn": "2022-03-23 11:10:09",
   "bDeleteFlag": 0
 }
 
@@ -75,23 +75,6 @@ response
 {
   "status": "success"
 }
---------------------------------------------------------
-Login API for username and password fetch
-
-request
-{
-  "task": "unamepassfetch"
-}
-response
-{
-  "status": "success",
-  "values": {
-    "id": 1,
-    "txtUsername": "abh123",
-    "txtPassword": "123"
-  }
-}
-
 --------------------------------------------------------
 Login API for changing password
 
@@ -108,6 +91,50 @@ response
 }
 
 --------------------------------------------------------
+Login api for user validation
+
+request
+{
+  "id": 1
+
+}
+
+response
+{
+  "status": "success",
+  "value": [
+    {
+      "id": 1,
+      "txtUsername": "abi",
+      "txtOrderNo": "1011",
+      "txtOrderAmount": "1292",
+      "txtAddress": "abc",
+      "txtPincode": "683562"
+    }
+  ]
+}
+--------------------------------------------------------
+Dasboard api for order summary
+request
+{
+  "id": 1
+
+}
+
+response
+{
+  "status": "success",
+  "value": [
+    {
+      "id": 1,
+      "txtOrderNo": "1011",
+      "txtOrderAmount": "1292",
+      "txtQuantity": "1",
+      "txtTotalAmount": "1292"
+    }
+  ]
+}
+--------------------------------------------------------
 Add Product API for inserting products
 
 request
@@ -115,7 +142,7 @@ request
   "id": 1,
   "txtProdName": "oven",
   "txtProdPrice": "7000",
-  "txtCategoryName": "kitchen appliances",
+  "refProdCategory": 2,
   "dtCreatedOn": "20220321 10:30:09 AM",
   "dtUpdatedOn": "20220323 11:10:09 AM",
   "bDeleteFlag": 0
@@ -137,43 +164,71 @@ response
   "status": "success",
   "values": [
     {
-      "id": 1,
-      "txtProdName": "oven",
-      "txtProdPrice": "7000",
-      "txtCategoryName": "kitchen appliances",
-      "dtCreatedOn": "20220321 10:30:09 AM",
-      "dtUpdatedOn": "20220323 11:10:09 AM",
-      "bDeleteFlag": 0
+      "txtProdName": "gas hob",
+      "txtProdPrice": "11999",
+      "txtCategoryName": "stove"
     },
     {
-      "id": 2,
       "txtProdName": "cooker",
-      "txtProdPrice": "2000",
-      "txtCategoryName": "stoves",
-      "dtCreatedOn": "20220104 07:32:58 PM",
-      "dtUpdatedOn": "20220202 09:17:36 AM",
-      "bDeleteFlag": 1
+      "txtProdPrice": "1292",
+      "txtCategoryName": "kitchen appliances"
+    },
+    {
+      "txtProdName": "mixer grinder",
+      "txtProdPrice": "7000",
+      "txtCategoryName": "kitchen appliances"
     }
   ]
 }
+--------------------------------------------------------
+API For productselectbyid
+
+request
+{
+  "id": 1
+}
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtProdName": "gas hob",
+      "txtProdPrice": "11999",
+      "txtCategoryName": "stove"
+    }
+  ]
 
 --------------------------------------------------------
 Edit Product  API for updating product
 
 request
 {
-  "id": 1,
-  "txtProdName": "gas stove",
-  "txtProdPrice": "4299",
-  "dtCreatedOn": "20220320 10:30:09 AM",
-  "dtUpdatedOn": "20220322 11:10:09 AM",
-  "bDeleteFlag": 0
+    "id":1,
+    "txtProdName":"gas hob 2.0",
+    "txtProdPrice":"11999",
+    "refProdCategory":1,
+    "dtCreatedOn":"2022-03-21 10:35:09",
+    "dtUpdatedOn":"2022-03-23 10:30:09",
+    "bDeleteFlag":1
 }
 
 response
 {
-  "status": "success"
+  "status": "success",
+  "values": {
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "(Rows matched: 1  Changed: 1  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 1
+  }
 }
+
 
 --------------------------------------------------------
 OrderList API for inserting orders
@@ -263,4 +318,105 @@ request
 response
 {
   "status": "success"
+}
+
+
+
+
+
+ARN:-  arn:aws:lambda:us-west-2:046929580496:layer:node:4
+
+
+
+API For selectordersfromhdr
+request
+{
+}
+Response
+[
+  {
+    "id": 1,
+    "refUser": 1,
+    "txtFirstname": "abin",
+    "txtLastname": "issac",
+    "txtAddress": "abc",
+    "txtOrderNo": "1011",
+    "txtOrderAmount": "1292",
+    "dtCreatedOn": "2022-03-01T10:30:09.000Z",
+    "dtUpdatedOn": "2022-03-02T10:30:09.000Z",
+    "bDeleteFlag": 0
+  },
+  {
+    "id": 2,
+    "refUser": 2,
+    "txtFirstname": "karthik",
+    "txtLastname": "k",
+    "txtAddress": "abc",
+    "txtOrderNo": "1022",
+    "txtOrderAmount": "11999",
+    "dtCreatedOn": "2022-03-21T10:30:09.000Z",
+    "dtUpdatedOn": "2022-03-27T10:30:09.000Z",
+    "bDeleteFlag": 1
+  }
+]
+
+
+
+selectuserbyid
+
+Request
+  {
+    "id":1,
+    "txtUsername":"abi123",
+    "txtFirstname": "abi",
+    "txtLastname": "i",
+    "txtPassword": "321",
+    "txtAddress":"mnb",
+    "txtCity":"knr",
+    "txtStreet":"thsr",
+    "txtPincode":"685698",
+    "txtPhoneNo":"9988657545",
+    "txtWebsite":"abi123.com"
+  }
+  
+  Response
+  {
+    "status": "success",
+    "values": {
+        "fieldCount": 0,
+        "affectedRows": 1,
+        "insertId": 0,
+        "serverStatus": 2,
+        "warningCount": 0,
+        "message": "(Rows matched: 1  Changed: 1  Warnings: 0",
+        "protocol41": true,
+        "changedRows": 1
+    }
+}
+
+
+userupdate
+
+Request
+{
+    "id":2,
+    "txtPassword":"321",
+  "txtFirstName":"karthhik",
+ "txtLastName":"kk",
+  "txtAddress":"hjk"
+}
+
+Response
+{
+    "status": "success",
+    "values": {
+        "fieldCount": 0,
+        "affectedRows": 1,
+        "insertId": 0,
+        "serverStatus": 2,
+        "warningCount": 0,
+        "message": "(Rows matched: 1  Changed: 1  Warnings: 0",
+        "protocol41": true,
+        "changedRows": 1
+    }
 }

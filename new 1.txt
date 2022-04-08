@@ -1,0 +1,3 @@
+country fetch - http://localhost:3000/countryfetch
+state fetch - http://localhost:3000/statefetch
+user insert - http://localhost:3000/userinsert

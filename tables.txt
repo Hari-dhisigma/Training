@@ -1,0 +1,153 @@
+CREATE DATABASE
+
+CREATE DATABASE ECOMMERCE
+------------------------------------------------------------
+CREATE TABLE tblCountry 
+
+CREATE TABLE tblCountry (
+    id INT NOT NULL AUTO_INCREMENT,
+    txtCountryName VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+------------------------------------------------------------
+CREATE TABLE tblState
+
+CREATE TABLE tblState (
+    id INT NOT NULL AUTO_INCREMENT,
+    txtStateName VARCHAR(50) NOT NULL,
+    refCountryName INT,
+    PRIMARY KEY (id),
+    FOREIGN KEY (refCountryName)
+        REFERENCES tblCountry (id)
+);
+
+------------------------------------------------------------
+CREATE TABLE tblUserType
+
+CREATE TABLE tblUserType (
+    id INT NOT NULL AUTO_INCREMENT,
+    txtUserType VARCHAR(50) NOT NULL,
+    dtCreatedOn DATETIME,
+    dtUpdatedOn DATETIME,
+    bDeleteFlag BOOLEAN,
+    PRIMARY KEY (id)
+);
+
+------------------------------------------------------------
+CREATE TABLE tblUsers
+
+CREATE TABLE tblUsers (
+    id INT NOT NULL AUTO_INCREMENT,
+	refUserType INT NOT NULL,
+    txtUsername VARCHAR(50) NOT NULL,
+    txtPassword VARCHAR(50) NOT NULL,
+    txtFirstname VARCHAR(50) NOT NULL,
+    txtLastname VARCHAR(50) NOT NULL,
+	refCountry INT NOT NULL,
+	refState INT NOT NULL,
+    txtAddress VARCHAR(50) NOT NULL,
+    txtStreet VARCHAR(50) NOT NULL,
+    txtCity VARCHAR(50) NOT NULL, 
+    txtPincode VARCHAR(50) NOT NULL,
+    txtPhoneNo VARCHAR(50) NOT NULL,
+    txtWebsite VARCHAR(50) NOT NULL,
+    bISRegistered BOOLEAN,
+    dtCreatedOn DATETIME,
+    dtUpdatedOn DATETIME,
+	bDeleteFlag BOOLEAN,
+    PRIMARY KEY (id),
+    FOREIGN KEY (refCountry)
+        REFERENCES tblCountry (id),
+    FOREIGN KEY (refState)
+        REFERENCES tblState (id),
+    FOREIGN KEY (refUserType)
+        REFERENCES tblUserType (id)
+);
+
+------------------------------------------------------------
+CREATE TABLE tblProductCategory
+
+CREATE TABLE tblProductCategory (
+    id INT NOT NULL AUTO_INCREMENT,
+    txtCategoryName VARCHAR(50) NOT NULL,
+    dtCreatedOn DATETIME,
+    dtUpdatedOn DATETIME,
+    bDeleteFlag BOOLEAN,
+    PRIMARY KEY (id)
+);
+
+------------------------------------------------------------
+CREATE TABLE tblProduct
+
+CREATE TABLE tblProduct (
+    id INT NOT NULL AUTO_INCREMENT,
+    txtProdName VARCHAR(50) NOT NULL,
+    txtProdPrice VARCHAR(50) NOT NULL,
+    refProdCategory INT NOT NULL,
+    dtCreatedOn DATETIME,
+    dtUpdatedOn DATETIME,
+    bDeleteFlag BOOLEAN,
+    PRIMARY KEY (id),
+    FOREIGN KEY (refProdCategory)
+        REFERENCES tblProductCategory (id)
+);
+
+------------------------------------------------------------
+CREATE TABLE tblOrderHdr
+
+CREATE TABLE tblOrderHdr (
+    id INT NOT NULL AUTO_INCREMENT,
+    refUser INT NOT NULL,
+    txtOrderNo VARCHAR(50) NOT NULL,
+    txtOrderAmount VARCHAR(50) NOT NULL,
+    dtCreatedOn DATETIME,
+    dtUpdatedOn DATETIME,
+    bDeleteFlag BOOLEAN,
+    PRIMARY KEY (id),
+    FOREIGN KEY (refUser)
+        REFERENCES tblUsers (id)
+);
+
+------------------------------------------------------------
+CREATE TABLE tblOrderChild
+
+CREATE TABLE tblOrderChild (
+    id INT NOT NULL AUTO_INCREMENT,
+    refOrderHdr INT NOT NULL,
+    refProduct INT NOT NULL,
+    txtQuantity VARCHAR(50) NOT NULL,
+    txtTotalAmount VARCHAR(50) NOT NULL,
+    dtCreatedOn DATETIME,
+    dtUpdatedOn DATETIME,
+    bDeleteFlag BOOLEAN,
+    PRIMARY KEY (id),
+    FOREIGN KEY (refOrderHdr)
+        REFERENCES tblOrderHdr (id),
+    FOREIGN KEY (refProduct)
+        REFERENCES tblProduct (id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

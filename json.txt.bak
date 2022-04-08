@@ -1,0 +1,421 @@
+Signup API for country fetch
+
+request
+{
+  "task": "countryfetch"
+}
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtCountryName": "india"
+    },
+    {
+      "id": 2,
+      "txtCountryName": "china"
+    },
+    {
+      "id": 3,
+      "txtCountryName": "srilanka"
+    }
+  ]
+}
+--------------------------------------------------------
+Signup API for state fetch
+
+request
+{
+  "id": 1,
+  "txtCountryName": "india"
+  
+}
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtStatename": "kerala"
+    },
+    {
+      "id": 2,
+      "txtStatename": "tamil nadu"
+    }
+  ]
+}
+--------------------------------------------------------
+Signup API for user insert
+
+request
+{
+  
+  "txtUserType": 1,
+  "txtUsername": "abh123",
+  "txtPassword": "123",
+  "txtFirstname": "Abin",
+  "txtLastname": "Issac",
+  "refCountry": 1,
+  "refState": 1,
+  "txtAddress": "abc",
+  "txtStreet": "dpd",
+  "txtCity": "ekm",
+  "txtPincode": "683562",
+  "txtPhoneNo": "910011277222",
+  "txtWebsite": "abintalks.com",
+  "bISRegistered": 1,
+  "dtCreatedOn": "2022-03-21 10:30:09",
+  "dtUpdatedOn": "2022-03-23 11:10:09",
+  "bDeleteFlag": 0
+}
+
+response
+{
+  "status": "success"
+}
+--------------------------------------------------------
+Login API for changing password
+
+request
+{
+  "id": 1,
+  "txtUsername": "abh123",
+  "txtPassword": "321"
+}
+
+response
+{
+  "status": "success"
+}
+
+--------------------------------------------------------
+Login api for user validation
+
+request
+{
+  "id": 1
+
+}
+
+response
+{
+  "status": "success",
+  "value": [
+    {
+      "id": 1,
+      "txtUsername": "abi",
+      "txtOrderNo": "1011",
+      "txtOrderAmount": "1292",
+      "txtAddress": "abc",
+      "txtPincode": "683562"
+    }
+  ]
+}
+--------------------------------------------------------
+Dasboard api for order summary
+request
+{
+  "id": 1
+
+}
+
+response
+{
+  "status": "success",
+  "value": [
+    {
+      "id": 1,
+      "txtOrderNo": "1011",
+      "txtOrderAmount": "1292",
+      "txtQuantity": "1",
+      "txtTotalAmount": "1292"
+    }
+  ]
+}
+--------------------------------------------------------
+Add Product API for inserting products
+
+request
+{
+  "id": 1,
+  "txtProdName": "oven",
+  "txtProdPrice": "7000",
+  "refProdCategory": 2,
+  "dtCreatedOn": "20220321 10:30:09 AM",
+  "dtUpdatedOn": "20220323 11:10:09 AM",
+  "bDeleteFlag": 0
+}
+response
+{
+  "status": "success"
+}
+--------------------------------------------------------
+ProductList API for fetching products
+
+request
+{
+  "task": "productfetch"
+}
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "txtProdName": "gas hob",
+      "txtProdPrice": "11999",
+      "txtCategoryName": "stove"
+    },
+    {
+      "txtProdName": "cooker",
+      "txtProdPrice": "1292",
+      "txtCategoryName": "kitchen appliances"
+    },
+    {
+      "txtProdName": "mixer grinder",
+      "txtProdPrice": "7000",
+      "txtCategoryName": "kitchen appliances"
+    }
+  ]
+}
+--------------------------------------------------------
+API For productselectbyid
+
+request
+{
+  "id": 1
+}
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtProdName": "gas hob",
+      "txtProdPrice": "11999",
+      "txtCategoryName": "stove"
+    }
+  ]
+
+--------------------------------------------------------
+Edit Product  API for updating product
+
+request
+{
+    "id":1,
+    "txtProdName":"gas hob 2.0",
+    "txtProdPrice":"11999",
+    "refProdCategory":1,
+    "dtCreatedOn":"2022-03-21 10:35:09",
+    "dtUpdatedOn":"2022-03-23 10:30:09",
+    "bDeleteFlag":1
+}
+
+response
+{
+  "status": "success",
+  "values": {
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "(Rows matched: 1  Changed: 1  Warnings: 0",
+    "protocol41": true,
+    "changedRows": 1
+  }
+}
+
+
+--------------------------------------------------------
+OrderList API for inserting orders
+
+request
+{
+  "id": 1,
+  "txtOrderNo": "1211",
+  "txtOrderAmount": "7000",
+  "dtCreatedOn": "20220211 10:40:09 AM",
+  "dtUpdatedOn": "20220331 11:19:09 AM",
+  "bDeleteFlag": 1
+}
+
+response
+{
+  "status": "success"
+}
+
+--------------------------------------------------------
+OrderList API for fetching orders
+
+request
+{
+  "task": "orderfetch"
+}
+
+
+response
+{
+  "status": "success",
+  "values": [
+    {
+      "id": 1,
+      "txtUsername": "abhi123",
+      "txtAddress": "abc",
+      "txtOrderNo": "1211",
+      "txtOrderAmount": "7000",
+      "dtCreatedOn": "20220211 10:40:09 AM",
+      "dtUpdatedOn": "20220331 11:19:09 AM",
+      "bDeleteFlag": 1
+    },
+    {
+      "id": 1,
+      "txtUsername": "abhi123",
+      "txtAddress": "abc",
+      "txtOrderNo": "1212",
+      "txtOrderAmount": "2000",
+      "dtCreatedOn": "20220115 13:40:09 PM",
+      "dtUpdatedOn": "20220330 15:19:09 PM",
+      "bDeleteFlag": 1
+    }
+  ]
+}
+
+--------------------------------------------------------
+OrderEdit API for updating order
+
+request
+{
+  "id": 1,
+  "txtOrderNo": "1210",
+  "txtOrderAmount": "7005",
+  "dtCreatedOn": "20220201 10:40:09 AM",
+  "dtUpdatedOn": "20220321 11:19:09 AM",
+  "bDeleteFlag": 1
+}
+
+response
+{
+  "status": "success"
+}
+
+
+--------------------------------------------------------
+ProfileEdit API for updating users
+
+request
+{
+  "id": 1,
+  "txtPassword": "asd",
+  "txtFirstName": "Abyn",
+  "txtLastName": "I",
+  "txtAddress": "poi"
+}
+
+response
+{
+  "status": "success"
+}
+
+
+
+
+
+ARN:-  arn:aws:lambda:us-west-2:046929580496:layer:node:4
+
+
+
+API For selectordersfromhdr
+request
+{
+}
+Response
+[
+  {
+    "id": 1,
+    "refUser": 1,
+    "txtFirstname": "abin",
+    "txtLastname": "issac",
+    "txtAddress": "abc",
+    "txtOrderNo": "1011",
+    "txtOrderAmount": "1292",
+    "dtCreatedOn": "2022-03-01T10:30:09.000Z",
+    "dtUpdatedOn": "2022-03-02T10:30:09.000Z",
+    "bDeleteFlag": 0
+  },
+  {
+    "id": 2,
+    "refUser": 2,
+    "txtFirstname": "karthik",
+    "txtLastname": "k",
+    "txtAddress": "abc",
+    "txtOrderNo": "1022",
+    "txtOrderAmount": "11999",
+    "dtCreatedOn": "2022-03-21T10:30:09.000Z",
+    "dtUpdatedOn": "2022-03-27T10:30:09.000Z",
+    "bDeleteFlag": 1
+  }
+]
+
+
+
+selectuserbyid
+
+Request
+  {
+    "id":1,
+    "txtUsername":"abi123",
+    "txtFirstname": "abi",
+    "txtLastname": "i",
+    "txtPassword": "321",
+    "txtAddress":"mnb",
+    "txtCity":"knr",
+    "txtStreet":"thsr",
+    "txtPincode":"685698",
+    "txtPhoneNo":"9988657545",
+    "txtWebsite":"abi123.com"
+  }
+  
+  Response
+  {
+    "status": "success",
+    "values": {
+        "fieldCount": 0,
+        "affectedRows": 1,
+        "insertId": 0,
+        "serverStatus": 2,
+        "warningCount": 0,
+        "message": "(Rows matched: 1  Changed: 1  Warnings: 0",
+        "protocol41": true,
+        "changedRows": 1
+    }
+}
+
+
+
+Request
+{
+    "id":2,
+    "txtPassword":"321",
+  "txtFirstName":"karthhik",
+ "txtLastName":"kk",
+  "txtAddress":"hjk"
+}
+
+Response
+{
+    "status": "success",
+    "values": {
+        "fieldCount": 0,
+        "affectedRows": 1,
+        "insertId": 0,
+        "serverStatus": 2,
+        "warningCount": 0,
+        "message": "(Rows matched: 1  Changed: 1  Warnings: 0",
+        "protocol41": true,
+        "changedRows": 1
+    }
+}

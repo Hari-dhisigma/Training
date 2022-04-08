@@ -1,0 +1,81 @@
+Signup API for country fetch
+
+SELECT id,txtCountryname FROM tblCountry;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Signup API for state fetch
+
+SELECT c.id, c.txtCountryname, s.id, s.txtStatename, s.refCountryName FROM tblCountry c JOIN tblState s ON s.refCountryName = c.id WHERE c.id ="+countryId;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Signup API for user insert
+
+INSERT INTO tblusers (refUserType, txtUsername, txtPassword, txtFirstName, txtLastName, refCountry, refState, txtAddress, txtStreet, txtCity, txtPincode, txtPhoneNo, txtWebsite, bIsRegistered, dtCreatedOn, dtUpdatedOn, bDeleteFlag) VALUES ("+usertype+",'"+username+"','"+password+"','"+firstname+"','"+lastname+"','"+country+"','"+state+"','"+address+"','"+street+"','"+city+"','"+pincode+"','"+phoneno+"','"+website+"',"+isregistered+",'"+createdon+"','"+updatedon+"',"+deleteflag+");  
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Login API for user validation
+
+SELECT  u.txtUsername,u.txtPassword,u.txtFirstName,u.txtLastName,t.txtUserType FROM tblUsers u JOIN tblUserType t ON u.refUserType = t.id WHERE u.txtUsername ='"+username+"' AND u.txtPassword ='"+password+"';
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Login API for changing password
+
+UPDATE tblUsers 
+SET txtPassword = '321' WHERE id = 1;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Dashboard API for Order Summary
+
+SELECT t.id,t.txtOrderNo,t.txtOrderAmount,c.txtQuantity,c.txtTotalAmount from tblOrderHdr t join tblOrderChild c on t.id=c.refOrderHdr where t.id="+id
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ProductList API for fetching products
+
+SELECT p.txtProdName, p.txtProdPrice, t.txtCategoryName FROM tblProduct p JOIN  tblProductCategory t ON p.refProdCategory = t.id
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Add Product API for inserting products
+
+INSERT INTO tblProduct (txtProdName,txtProdPrice,refProdCategory,dtCreatedOn,dtUpdatedOn,bDeleteFlag) VALUES ('"+productname+"','"+productprice+"','"+ProdCategory+"','"+CreatedOn+"','"+UpdatedOn+"','"+DeleteFlag+"');
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Edit Product  API for updating product
+
+UPDATE tblProduct SET txtProdName = '"+ProdName+"', txtProdPrice = '"+ProdPrice+"', dtCreatedOn = '"+CreatedOn+"', dtUpdatedOn = '"+UpdatedOn+"', bDeleteFlag = '"+DeleteFlag+"' WHERE id='"+pid+"'
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+OrderList API for inserting orders
+
+INSERT INTO tblOrderHdr
+VALUES ('1211','7000','2022-02-11 10:40:09','2022-03-31 11:19:09',1),
+       ('','1212','2000','2022-01-15 13:40:09','2022-03-30 15:19:09',1);
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+OrderList API for fetching orders
+
+SELECT t.id, t.refUser, u.txtFirstname, u.txtLastname, u.txtAddress, t.txtOrderNo, t.txtOrderAmount, t.dtCreatedOn, t.dtUpdatedOn, t.bDeleteFlag FROM tblOrderHdr t JOIN tblUsers u ON t.refUser=u.id 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+OrderEdit API for updating order
+
+UPDATE tblOrderHdr
+SET txtOrderNo = '', txtOrderAmount = '', dtCreatedOn = '', dtUpdatedOn = '', bDeleteFlag = '' WHERE id = 1;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ProfileEdit API for updating users
+
+UPDATE tblUsers
+SET txtPassword ='', txtFirstName ='', txtLastName ='',txtAddress ='' WHERE id = 1;
+
+
+"SELECT t.id,t.txtOrderNo,t.txtOrderAmount,u.txtQuantity,u.txtTotalAmount from tblOrderHdr t join tblOrderChild u on t.id=u.refOrderHdr where t.id=
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+API For selectuserbyid
+
+UPDATE tblUsers SET txtUsername ='"+txtUsername+"',txtPassword='"+txtPassword+"',txtFirstname='"+txtFirstname+"',txtLastname='"+txtLastname+"',txtAddress='"+txtAddress+"',txtStreet='"+txtStreet+"',txtCity='"+txtCity+"',txtPincode='"+txtPincode+"',txtPhoneNo='"+txtPhoneNo+"',txtWebsite='"+txtWebsite+"' WHERE id='"+id+"'
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
